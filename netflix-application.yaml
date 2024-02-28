@@ -1,16 +1,17 @@
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mario-app
+  name: netflix-app
 spec:
   project: default
   source:
     repoURL: 'https://github.com/limanalhassann/local-argocd.git'
-    path: Mario
+    path: Netflix
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: mario
+    namespace: netflix
   syncPolicy:
     automated:
       prune: true
