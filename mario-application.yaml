@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mario
+
+---  
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mario-app
+  namespace: mario
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/limanalhassan/local-argocd.git
+    targetRevision: HEAD
+    path: Mario
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mario
